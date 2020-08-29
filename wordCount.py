@@ -51,11 +51,16 @@ else:
             else: 
                 word_map[word] = 1
 
-        for word in word_map:
-            print(word) 
-            print(word_map[word])
+        #iterate through the dictionary which I like to call map
+        #for word in word_map:
+            #print(word) 
+            #print(word_map[word])
 #remove symbols, move to lower case
 #Itereate through the file
 #While iterating through the file increment the "hasmap" or dicionary
 #Pop the words by alphabetical order
 #Write to the text file
+    with open ('output.txt', 'w') as fp:
+        for p in word_map.items():
+            print(p)
+            fp.write("%s:%s\n" % p)
