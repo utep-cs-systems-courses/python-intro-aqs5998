@@ -32,11 +32,28 @@ else:
     for line in Lines: 
         #Convert to lower case
         line = line.lower()
-        #Remove symbols using regular expressions
-        line = re.sub(r'[^\w]', ' ', line).
-        print("Line{}: {}".format(count, line.strip())) 
+        #Remove commas using regular expressions
+        #line = re.sub(r'[^\-]', ' ', line)
+        #Remove dashes using regular expressions
+        line = re.sub(r'[\-]',' ', line)
+        #Remove commas using regular expressions
+        line = re.sub(r'[\,]',' ', line)
+        #Remove quotations using regular expressions
+        line = re.sub(r'[\"]',' ', line)
+        #Remove non alphabetic characters using regular expressions
+        line = re.sub(r'[^a-z]', ' ', line)
+        #print("Line{}: {}".format(count, line.strip())) 
         count = count + 1
+        word_containter = line.split()
+        for word in word_containter:
+            if word in word_map:
+                word_map[word] += 1
+            else: 
+                word_map[word] = 1
 
+        for word in word_map:
+            print(word) 
+            print(word_map[word])
 #remove symbols, move to lower case
 #Itereate through the file
 #While iterating through the file increment the "hasmap" or dicionary
